@@ -34,28 +34,28 @@
             <br>
             <p>Fill out the form below to order some of Suzi's delectable delights.</p>
             <br>
-            <form>
+            <form action="mailto:jmcanly.dev@gmail.com?subject=Baked%20Goods%20Request" method="POST">
                 <label for="fname">First Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <input type="text" id="fname" name="fname" required><br><br>
 
                 <label for="lname">Last Name:</label>
                 <input type="text" id="lname" name="lname" required><br><br>
               
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="text" id="email" name="email" required><br><br>
               
-                <label for="item">Item:</label>
-                <select id="item" name="item" required>
+                <label for="">Menu Item:</label>
+                <select id="menu-item" name="menu-item">
                   <option value="">--Select a product--</option>
-                  <option value="Nutella Cupcakes - 12 Ct.">Nutella Cupcakes - 12 Ct.</option>
-                  <option value="Petifores - 1 Ct.">Petifores - 1 Ct.</option>
-                  <option value="Surgar Cookies - 6 Ct.">Surgar Cookies - 6 Ct.</option>
-                </select><br><br>
-              
-                <label for="comments">Comments:</label>
-                <textarea id="comments" name="comments"></textarea><br><br>
-              
-                <button type="submit">Place Order</button>
+                  <option id="nutella-cupcakes" value="Nutella Cupcakes - 6 Ct.">Nutella Cupcakes - 6 Ct.</option>
+                  <option id="petifores" value="Petifores - 1 Ct.">Petifores - 1 Ct.</option>
+                  <option id="sugar-cookies" value="Sugar Cookies - 12 Ct.">Sugar Cookies - 12 Ct.</option>
+                </select>
+                <div class="menu-option">
+                    <img src=""/>
+                    <p class="desc"></p>
+                </div>      
+                <input type="submit" id="submit" name="submit"/>
               </form>
         </main>
 
@@ -72,4 +72,42 @@
             <p>Suzi's Bakeshop LLC</p>
         </footer>
 </body>
+<script>
+    window.addEventListener("DOMContentLoaded", function(e){
+        const order = localStorage.getItem("order");
+
+        if(order) {// see if object has value
+            const bakeryRequest = JSON.parse(order); //turn the JSON string into an object
+            const menuOption = document.querySelector(".menu-option"); // get the element that contains the image and title of our bakery items
+
+            const desc = menuOption.querySelector(".desc") // get the description element
+            desc.innerText = bakeryRequest.title; // update it to the value of the request
+
+            const choiceId = bakeryRequest.id; // get the id of the choice
+            const dropdown = document.getElementById("menu-item"); // get the dropdown element
+            const dropdownChoices = dropdown.querySelectorAll("option"); // get all the existing options
+            dropdownChoices.forEach(function(dropdownChoice){
+                if (dropdownChoice.id === choiceId) {
+                    dropdownChoice.selected = true; // if this is the same id as what we selected on the the page, we will mark that choice as selected
+                }
+            });
+            
+            const img = menuOption.querySelector("img")
+            img.setAttribute("src", `../images/${choiceId}.jpg`); //NOTE: The image names need to match the IDs
+            img.setAttribute("width", "280");
+            img.setAttribute("height", "200");
+            img.setAttribute("alt", bakeryRequest.title);
+
+            dropdown.addEventListener("change", function(){
+                const selectedOption = dropdown.value;
+                const selectedChoice = dropdown.querySelector(`option[value="${selectedOption}"]`);
+                const choiceId = selectedChoice.id;
+                const choiceTitle = selectedChoice.value;
+                desc.innerText = choiceTitle;
+                img.setAttribute("src", `../images/${choiceId}.jpg`);
+                img.setAttribute("alt", choiceTitle);
+            });
+        }
+    })
+</script>
 </html>
