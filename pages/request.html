@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="recipes.html">Recipes</a>
+                </li>
+                <li>
+                    <a href="menu.html">Menu</a>
+                </li>
+                <li>
+                    <a href="request.html">Request</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+        <main>
+            <h1>Order From Suzi!</h1>
+            <br>
+            <p>Fill out the form below to order some of Suzi's delectable delights.</p>
+            <br>
+            <form>
+                <label for="fname">First Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" required><br><br>
+              
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+              
+                <label for="item">Item:</label>
+                <select id="item" name="item" required>
+                  <option value="">--Select a product--</option>
+                  <option value="Nutella Cupcakes - 12 Ct.">Nutella Cupcakes - 12 Ct.</option>
+                  <option value="Petifores - 1 Ct.">Petifores - 1 Ct.</option>
+                  <option value="Surgar Cookies - 6 Ct.">Surgar Cookies - 6 Ct.</option>
+                </select><br><br>
+              
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments"></textarea><br><br>
+              
+                <button type="submit">Place Order</button>
+              </form>
+        </main>
+
+        <p>Advertisement</p>
+        <aside>
+            <div id="ads">
+                <img src = "../images/crumbl.jpg" alt= "Crumbl Ad" width="280" height="200">
+                <img src = "../images/bonbon.jpg" alt= "The Bonbonerie Ad" width="200" height="200">
+                <img src = "../images/servatii.jpg" alt= "Servatii Ad" width="280" height="200">
+            </div>
+        </aside>
+        <br>
+        <footer>
+            <p>Suzi's Bakeshop LLC</p>
+        </footer>
+</body>
+</html>

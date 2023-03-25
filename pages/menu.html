@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="../stylesheets/menu.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="recipes.html">Recipes</a>
+                </li>
+                <li>
+                    <a href="menu.html">Menu</a>
+                </li>
+                <li>
+                    <a href="request.html">Request</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+        <main>
+            <h1>Suzi's Menu of Delectable Goodies</h1>
+            <div class="menu">
+                <div id="nutella-cupcakes" class="menu-option">
+                    <img src = "../images/img_1234.jpg" alt= "Nutella Cupcakes" width="280" height="200">
+                    <caption class="desc">Nutella Cupcakes - 12 Ct.</caption> <br>
+                    <button data-order="nutella-cupcakes">Order</button>
+                </div>
+
+                <div id="petifores" class="menu-option">
+                    <img src = "../images/img_1235.jpg" alt= "Petifores" width="280" height="200">
+                    <caption class="desc">Petifores - 1 Ct.</caption> <br>
+                    <button data-order="petifores">Order</button>
+                </div>
+
+                <div id="surgar-cookies" class="menu-option">
+                    <img src = "../images/img_1236.jpg" alt= "Surgar Cookies" width="280" height="200">
+                    <caption class="desc">Surgar Cookies - 6 Ct.</caption> <br>
+                    <button data-order="surgar-cookies">Order</button>
+                </div>
+            </div>
+        </main>
+
+        <p>Advertisement</p>
+        <aside>
+            <div id="ads">
+                <img src = "../images/crumbl.jpg" alt= "Crumbl Ad" width="280" height="200">
+                <img src = "../images/bonbon.jpg" alt= "The Bonbonerie Ad" width="200" height="200">
+                <img src = "../images/servatii.jpg" alt= "Servatii Ad" width="280" height="200">
+            </div>
+        </aside>
+        <br>
+        <footer>
+            <p>Suzi's Bakeshop LLC</p>
+        </footer>
+        <script> //JS goes after the footer
+            // Create an event listener that listens for the page to load
+            window.addEventListener("DOMContentLoaded", function(e) {
+                console.log("The page loaded")
+            });
+        </script>
+</body>
+</html>
