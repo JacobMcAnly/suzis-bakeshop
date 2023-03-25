@@ -31,24 +31,24 @@
         </nav>
     </header>
         <main>
-            <h1>Suzi's Menu of Delectable Goodies</h1>
+            <h1>Suzi's Delectable Delights</h1>
             <div class="menu">
                 <div id="nutella-cupcakes" class="menu-option">
-                    <img src = "../images/img_1234.jpg" alt= "Nutella Cupcakes" width="280" height="200">
-                    <caption class="desc">Nutella Cupcakes - 12 Ct.</caption> <br>
+                    <img src = "../images/nutella-cupcakes.jpg" alt= "Nutella Cupcakes" width="280" height="200">
+                    <p class="desc">Nutella Cupcakes - 6 Ct.</p> <br>
                     <button data-order="nutella-cupcakes">Order</button>
                 </div>
 
                 <div id="petifores" class="menu-option">
-                    <img src = "../images/img_1235.jpg" alt= "Petifores" width="280" height="200">
-                    <caption class="desc">Petifores - 1 Ct.</caption> <br>
+                    <img src = "../images/petifores.jpg" alt= "Petifores" width="280" height="200">
+                    <p class="desc">Petifores - 1 Ct.</p> <br>
                     <button data-order="petifores">Order</button>
                 </div>
 
-                <div id="surgar-cookies" class="menu-option">
-                    <img src = "../images/img_1236.jpg" alt= "Surgar Cookies" width="280" height="200">
-                    <caption class="desc">Surgar Cookies - 6 Ct.</caption> <br>
-                    <button data-order="surgar-cookies">Order</button>
+                <div id="sugar-cookies" class="menu-option">
+                    <img src = "../images/sugar-cookies.jpg" alt= "Sugar Cookies" width="280" height="200">
+                    <p class="desc">Sugar Cookies - 12 Ct.</p> <br>
+                    <button data-order="sugar-cookies">Order</button>
                 </div>
             </div>
         </main>
@@ -66,9 +66,42 @@
             <p>Suzi's Bakeshop LLC</p>
         </footer>
         <script> //JS goes after the footer
+
             // Create an event listener that listens for the page to load
             window.addEventListener("DOMContentLoaded", function(e) {
                 console.log("The page loaded")
+
+                // get a const fo the order buttons
+                const orderButtons = document.querySelectorAll("button[data-order]")
+
+                // create a foreach loop for each button
+                orderButtons.forEach(function(btn){
+
+                    // listen for a click
+                    btn.addEventListener("click", function(e){
+                        console.log("button clicked")
+
+                        // get the current target and container
+                        const btn = e.currentTarget;
+                        const container = btn.parentNode;
+
+                        // create an order object
+                        const order = {
+                            id: btn.getAttribute("data-order"),
+                            title: container.querySelector(".desc").innerText,
+                            price: "$0.00"
+                        };
+
+                        // save to local storage
+                        localStorage.setItem("order", JSON.stringify(order));
+
+                        // switch to a new page
+                        const url = window.location.href.replace("menu.html", "request.html");
+                        window.location.href = url;
+                    });
+    
+                });
+
             });
         </script>
 </body>

@@ -15,6 +15,10 @@ main > h1, p {
     font-family: cursive;
 }
 
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
 
 a {
     color: black;
