@@ -98,14 +98,29 @@
             img.setAttribute("height", "200");
             img.setAttribute("alt", bakeryRequest.title);
 
-            dropdown.addEventListener("change", function(){
-                const selectedOption = dropdown.value;
-                const selectedChoice = dropdown.querySelector(`option[value="${selectedOption}"]`);
-                const choiceId = selectedChoice.id;
-                const choiceTitle = selectedChoice.value;
-                desc.innerText = choiceTitle;
-                img.setAttribute("src", `../images/${choiceId}.jpg`);
-                img.setAttribute("alt", choiceTitle);
+        // Add an event listener to the dropdown element
+        dropdown.addEventListener("change", function() {
+            // Get the value of the currently selected option in the dropdown
+            const selectedOption = dropdown.value;
+  
+            // Find the option element with a value attribute equal to selectedOption
+            const selectedChoice = dropdown.querySelector(`option[value="${selectedOption}"]`);
+  
+            // Get the id attribute of the selected option element
+            const choiceId = selectedChoice.id;
+            
+            // Get the value attribute of the selected option element
+            const choiceTitle = selectedChoice.value;
+            
+            // Set the inner text of an element with ID "desc" to choiceTitle
+            desc.innerText = choiceTitle;
+            
+            // Set the src attribute of an image element to a file path in the ../images/ directory
+            // The file name is constructed from the choiceId variable, and has a .jpg file extension
+            img.setAttribute("src", `../images/${choiceId}.jpg`);
+            
+            // Set the alt attribute of the image element to choiceTitle
+            img.setAttribute("alt", choiceTitle);
             });
         }
     })
