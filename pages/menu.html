@@ -65,44 +65,46 @@
         <footer>
             <p>Suzi's Bakeshop LLC</p>
         </footer>
-        <script> //JS goes after the footer
+        <!-- The script tag is used to include JavaScript code in an HTML document -->
+        <script>
 
-            // Create an event listener that listens for the page to load
+            // Add an event listener that listens for the DOMContentLoaded event, which is triggered when the page has finished loading
             window.addEventListener("DOMContentLoaded", function(e) {
-                console.log("The page loaded")
-
-                // get a const fo the order buttons
-                const orderButtons = document.querySelectorAll("button[data-order]")
-
-                // create a foreach loop for each button
+                console.log("The page loaded"); // Output a message to the console to indicate that the page has loaded
+            
+                // Get a const reference to all the buttons with a 'data-order' attribute
+                const orderButtons = document.querySelectorAll("button[data-order]");
+            
+                // Create a loop that iterates over each button in orderButtons
                 orderButtons.forEach(function(btn){
-
-                    // listen for a click
+            
+                    // Add an event listener that listens for a click event on the current button
                     btn.addEventListener("click", function(e){
-                        console.log("button clicked")
-
-                        // get the current target and container
+                        console.log("button clicked"); // Output a message to the console to indicate that the button was clicked
+            
+                        // Get a const reference to the current button and its parent node
                         const btn = e.currentTarget;
                         const container = btn.parentNode;
-
-                        // create an order object
+            
+                        // Create an order object that stores the id, title, and price of the clicked item
                         const order = {
                             id: btn.getAttribute("data-order"),
                             title: container.querySelector(".desc").innerText,
                             price: "$0.00"
                         };
-
-                        // save to local storage
+            
+                        // Save the order object to local storage as a JSON string
                         localStorage.setItem("order", JSON.stringify(order));
-
-                        // switch to a new page
+            
+                        // Redirect the user to the request.html page
                         const url = window.location.href.replace("menu.html", "request.html");
                         window.location.href = url;
                     });
-    
+            
                 });
-
+            
             });
-        </script>
+            
+            </script>
 </body>
 </html>
