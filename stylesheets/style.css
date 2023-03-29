@@ -5,13 +5,12 @@ html, body {
 }
 
 body {
-    background-color: lavender;
-    display: flex;
-    flex-direction: column;
+    background-image: url("../images/background.jpg");
+    display: flex; /* enables the use of the flexbox model */
+    flex-direction: column; /* makes the child elements flow vertically from top to bottom inside the container */
 }
 
 main > h1, p {
-    color: black;
     font-family: cursive;
 }
 
@@ -25,6 +24,7 @@ a {
     font-size: large;
 }
 
+
 /* Header styles */
 header {
     background-color: lemonchiffon;
@@ -36,44 +36,51 @@ nav > ul {
   }
   
   nav > ul > li {
-    display: inline-block;
-    margin-right: 10px;
+    display: inline-block; /* element is rendered as an inline-level box, which allows it to be placed horizontally on the same line as other elements. At the same time, it also has the properties of a block-level box, which allows it to have a specified width and height, as well as padding and margins. */
+    margin-right: 10px; 
   }
   
   nav > ul > li > a {
-    text-decoration: none;
+    text-decoration: none; /* remove the underlining of hyperlinks */
     font-family: cursive;
     color: #333;
   }
 
+
 /* Main styles */
 main {
-    flex: 1;
+    flex: 1; /* creates a flexible layout that adjusts to different screen sizes */
 }
 
 main > h1, main > p {
     text-align: center;
     max-width: 600px;
-    display: block;
-    margin: 0 auto;
+    display: block; /* causes the element to take up the full width of its container and create a line break before and after it. */
+    margin: 0 auto; /* centers the block-level element horizontally within its container, as long as the container has a fixed width or is a block-level element itself. */
 }
 
 main > p {
     font-weight: 5;
 }
 
+
 /* Aside styles */
 aside {
-    flex: 0 1 120px;
+    flex: 0 1 120px; /* aside is a fixed size, but can shrink if necessary*/
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
+    gap: 5px; /* space between the child elements */
+    padding: 10px; /* adds space between the child element and the border */
     border: solid 1px black;
+    width: fit-content;
     height: fit-content;
-    align-items: center;
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     background-color: whitesmoke;
+}
+
+aside > div > p {
+    color: black;
+    text-shadow: none;
 }
 
 .ads {
@@ -81,9 +88,10 @@ aside {
     display: inline;
 }
 
+
 /* Footer styles */
 footer {
     text-align: center;
-    flex-shrink: 0;
-    margin-top: auto;
+    flex-shrink: 0; /* element will not shrink if there is not enough space */
+    margin-top: auto; /* automatically adjust the margin so the element is vertically centered within its container */
 }

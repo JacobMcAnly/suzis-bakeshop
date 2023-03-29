@@ -53,7 +53,6 @@
             </div>
         </main>
 
-        <p>Advertisement</p>
         <aside>
             <div id="ads">
                 <img src = "../images/crumbl.jpg" alt= "Crumbl Ad" width="280" height="200">
@@ -66,45 +65,6 @@
             <p>Suzi's Bakeshop LLC</p>
         </footer>
         <!-- The script tag is used to include JavaScript code in an HTML document -->
-        <script>
-
-            // Add an event listener that listens for the DOMContentLoaded event, which is triggered when the page has finished loading
-            window.addEventListener("DOMContentLoaded", function(e) {
-                console.log("The page loaded"); // Output a message to the console to indicate that the page has loaded
-            
-                // Get a const reference to all the buttons with a 'data-order' attribute
-                const orderButtons = document.querySelectorAll("button[data-order]");
-            
-                // Create a loop that iterates over each button in orderButtons
-                orderButtons.forEach(function(btn){
-            
-                    // Add an event listener that listens for a click event on the current button
-                    btn.addEventListener("click", function(e){
-                        console.log("button clicked"); // Output a message to the console to indicate that the button was clicked
-            
-                        // Get a const reference to the current button and its parent node
-                        const btn = e.currentTarget;
-                        const container = btn.parentNode;
-            
-                        // Create an order object that stores the id, title, and price of the clicked item
-                        const order = {
-                            id: btn.getAttribute("data-order"),
-                            title: container.querySelector(".desc").innerText,
-                            price: "$0.00"
-                        };
-            
-                        // Save the order object to local storage as a JSON string
-                        localStorage.setItem("order", JSON.stringify(order));
-            
-                        // Redirect the user to the request.html page
-                        const url = window.location.href.replace("menu.html", "request.html");
-                        window.location.href = url;
-                    });
-            
-                });
-            
-            });
-            
-            </script>
+        <script src="../script/menu.js" type="text/javascript"></script>
 </body>
 </html>
