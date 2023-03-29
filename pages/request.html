@@ -59,7 +59,6 @@
               </form>
         </main>
 
-        <p>Advertisement</p>
         <aside>
             <div id="ads">
                 <img src = "../images/crumbl.jpg" alt= "Crumbl Ad" width="280" height="200">
@@ -72,57 +71,5 @@
             <p>Suzi's Bakeshop LLC</p>
         </footer>
 </body>
-<script>
-    window.addEventListener("DOMContentLoaded", function(e){
-        const order = localStorage.getItem("order");
-
-        if(order) {// see if object has value
-            const bakeryRequest = JSON.parse(order); //turn the JSON string into an object
-            const menuOption = document.querySelector(".menu-option"); // get the element that contains the image and title of our bakery items
-
-            const desc = menuOption.querySelector(".desc") // get the description element
-            desc.innerText = bakeryRequest.title; // update it to the value of the request
-
-            const choiceId = bakeryRequest.id; // get the id of the choice
-            const dropdown = document.getElementById("menu-item"); // get the dropdown element
-            const dropdownChoices = dropdown.querySelectorAll("option"); // get all the existing options
-            dropdownChoices.forEach(function(dropdownChoice){
-                if (dropdownChoice.id === choiceId) {
-                    dropdownChoice.selected = true; // if this is the same id as what we selected on the the page, we will mark that choice as selected
-                }
-            });
-            
-            const img = menuOption.querySelector("img")
-            img.setAttribute("src", `../images/${choiceId}.jpg`); //NOTE: The image names need to match the IDs
-            img.setAttribute("width", "280");
-            img.setAttribute("height", "200");
-            img.setAttribute("alt", bakeryRequest.title);
-
-        // Add an event listener to the dropdown element
-        dropdown.addEventListener("change", function() {
-            // Get the value of the currently selected option in the dropdown
-            const selectedOption = dropdown.value;
-  
-            // Find the option element with a value attribute equal to selectedOption
-            const selectedChoice = dropdown.querySelector(`option[value="${selectedOption}"]`);
-  
-            // Get the id attribute of the selected option element
-            const choiceId = selectedChoice.id;
-            
-            // Get the value attribute of the selected option element
-            const choiceTitle = selectedChoice.value;
-            
-            // Set the inner text of an element with ID "desc" to choiceTitle
-            desc.innerText = choiceTitle;
-            
-            // Set the src attribute of an image element to a file path in the ../images/ directory
-            // The file name is constructed from the choiceId variable, and has a .jpg file extension
-            img.setAttribute("src", `../images/${choiceId}.jpg`);
-            
-            // Set the alt attribute of the image element to choiceTitle
-            img.setAttribute("alt", choiceTitle);
-            });
-        }
-    })
-</script>
+<script src="../script/request.js" type="text/javascript"></script>
 </html>

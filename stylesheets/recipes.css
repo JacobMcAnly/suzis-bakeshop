@@ -1,29 +1,29 @@
 .recipe-card {
+    
     background-color:azure;
     border: dotted 5px navy;
-    border-radius: 15px;
-    margin: 30px 10px;
-    padding: 15px;
-    max-width: 700px;
-    display: block;
+    border-radius: 15px;/* round the corners of the border  */  
+    margin: 30px 10px;  /* create space between this menu option and other adjacent elements */
+    padding: 15px; /* create space between the content and the border */ 
+    max-width: 700px; /* card width  */
+    display: block; /* set the display to be rendered as a block-level element */
+
+    /* center the menu within the container*/
     margin-left: auto;
     margin-right: auto;
     
 }
 
 .recipe-info {
-    list-style: none;
-    padding-left: 0;
+    list-style: none; /* remove the default bullet points/numbering from the list items */
+    padding-left: 0; /* remove any indentation/padding from the left side of the element */
 }
 
 .recipe-info > li{
-    display: inline;
-    padding: 10px;
+    display: inline; /* list items are rendered on the same line */
     padding: 15px 15px 15px 0px;
 }
 
 ul, li {
-
     font-family: cursive;
-
 }
